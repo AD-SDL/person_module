@@ -1,8 +1,8 @@
-name: camera_module
+name: person_module
 services:
-  camera_module:
-    container_name: camera_module
-    image: ghcr.io/ad-sdl/camera_module
+  person_module:
+    container_name: person_module
+    image: ghcr.io/ad-sdl/person_module
     environment:
       - USER_ID=${USER_ID:-1000}
       - GROUP_ID=${GROUP_ID:-1000}
@@ -10,9 +10,9 @@ services:
       context: .
       dockerfile: Dockerfile
       tags:
-        - ghcr.io/ad-sdl/camera_module:latest
-        - ghcr.io/ad-sdl/camera_module:dev
-    command: python camera_module/src/camera_rest_node.py --node_definition definitions/camera_node_template.node.yaml
+        - ghcr.io/ad-sdl/person_module:latest
+        - ghcr.io/ad-sdl/person_module:dev
+    command: python person_module/src/person_rest_node.py --node_definition definitions/person_node_template.node.yaml
     volumes:
       - ./definitions:/home/madsci/definitions
     privileged: true
